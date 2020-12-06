@@ -1,0 +1,75 @@
+import os
+
+class Chars():
+
+  def __init__(self,charclass= "NULL", hp = 0, ap = 0, wp = [], armtype = []):
+    self.charclass = charclass
+    self.hp = hp
+    self.ap = ap
+    self.wp = wp
+    self.armtype = armtype
+
+  def charinfo(self):
+    print("\n<>-----> Information of |{}| <-----<>\n".format(self.charclass))
+    print("Class: {}\nHP: {}\nAttack Point: {}\nWeapon: {}\nArmor Type: {}".format((self.charclass),(self.hp),(self.ap),(self.wp),(self.armtype)))
+    print("\n<>------------------<>------------------<>\n")
+
+shamanWp = ["Bell","Fan"]
+shamanArmtype = ["Fabric"]
+suraWp = ["Sura-specific Sword","Non-specific Sura Sword"]
+suraArmtype = ["Fabric","Steel"]
+ninjaWp = ["One-handed Sword","Daggers","Bow","Arrow"]
+ninjaArmtype = ["Leather"]
+warriorWp = ["One-handed Sword","Two-handed Warrior Weapon"]
+warriorArmtype = ["Steel"]
+
+
+shaman = Chars("SHAMAN",450,55,shamanWp,shamanArmtype)
+sura = Chars("SURA",550,70,suraWp,suraArmtype)
+ninja = Chars("NINJA",650,60,ninjaWp,ninjaArmtype)
+warrior = Chars("WARRIOR",800,65,warriorWp,warriorArmtype)
+undefchar = Chars()
+
+while True:
+  os.system("clear")
+  print('''
+<>------------------<>------------------<>
+   METIN 2 CHARACTER INFORMATION SCREEN    
+<>------------------<>------------------<>
+                    
+<>------------------<>------------------<>
+
+                [1] Shaman              
+                [2] Sura                
+                [3] Ninja               
+                [4] Warrior             
+                [Q] Quit       
+
+<>------------------<>------------------<>
+
+    ''')
+  choice = input("Please make a choice: ")
+
+  if choice == "1":
+    shaman.charinfo()
+    input("\nEnter to mainmenu.")
+
+  elif choice == "2":
+    sura.charinfo()
+    input("\nEnter to mainmenu.")
+
+  elif choice == "3":
+    ninja.charinfo()
+    input("\nEnter to mainmenu.")
+  
+  elif choice == "4":
+    warrior.charinfo()
+    input("\nEnter to mainmenu.")
+
+  elif choice == "q" or choice == "Q":
+    quit("@>--- Quitted ---<@")
+
+  else:
+    undefchar.charinfo()
+    print("\nUndefined Character Number.\n")
+    input("Enter to mainmenu.")
